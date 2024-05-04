@@ -24,10 +24,8 @@ jobs:
 
       - name: Deploy to Lambda
         run: |
-           aws s3 cp CIS470Activity-8-main.zip s3://my-deployment-bucket/deployment-package.zip
-           aws lambda update-function-code --function-name CIS470Activity-8  --s3-bucket my-deployment-bucket --s3-key deployment-package.zip
-           
-    env:
+          aws lambda update-function-code --function-name CIS470-Activity-8 --zip-file fileb://deployment-package.zip
+        env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY  }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'us-east-2'
