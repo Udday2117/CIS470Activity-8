@@ -24,7 +24,7 @@ jobs:
 
       - name: Deploy to Lambda
         run: |
-           aws s3 cp my_lambda_01.zip s3://my-deployment-bucket/deployment-package.zip
+           aws s3 cp CIS470Activity-8.zip s3://my-deployment-bucket/deployment-package.zip
            aws lambda update-function-code --function-name CIS470Activity-8  --s3-bucket my-deployment-bucket --s3-key deployment-package.zip
            
     env:
